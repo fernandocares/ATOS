@@ -34,43 +34,50 @@ include_once("menu_admin.php");
 
 </head>
 
-    <body class="container">   
-        
+    <body class="container">
+
         <h1>Cadastrar Usuários</h1>
         <form id="frmCadUser" name="frmCadUser" method="post" action="cad_usuarios.php">
-       
+
           <div class="form-group">
-            <label for="lblDesc">Nome completo: </label>
+            <label for="lblNomeCompleto">Nome completo: </label>
             <input type="text" class="form-control" id="user_name" placeholder="Ex: João Da Silva">
           </div>
           <div class="form-group">
-            <label for="lblUni">Email: </label>
+            <label for="lblEmail">Email: </label>
             <input type="email" class="form-control" id="user_email" name="user_email">
           </div>
 
           <div class="form-group">
-            <label for="lblQtd">Nome de usuário: </label>
+            <label for="lblNomeUsuario">Nome de usuário: </label>
             <input type="text" class="form-control" id="user_nickname" placeholder="Ex: nomedeusuario">
           </div>
           <div class="form-group">
-            <label for="lblValor">Senha: </label>
+            <label for="lblSenha">Senha: </label>
             <input type="password" class="form-control" id="user_senha">
           </div>
-          
+
           <div class="form-group">
-            <label for="lblValor">Nível de Acesso: </label>
-            <input type="text" class="form-control" id="user_nivel">
-          </div> 
-        
+            <label for="lblNivelAcesso">Nível de Acesso: </label>
+            <!-- <input type="text" class="form-control" id="user_nivel"> -->
+            <select class="form-control" name="user_nivel">
+                <option value="1">Administrativo</option>
+                <option value="2">Usuário</option>
+            </select>
+          </div>
+
+
+
+
           <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
           <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
 
-        
+
           <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
           <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
           <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-               
-        
+
+
         <script>
         // just for the demos, avoids form submit
         jQuery.validator.setDefaults({
@@ -96,7 +103,7 @@ include_once("menu_admin.php");
 
               ?>
         </p>
-          
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
