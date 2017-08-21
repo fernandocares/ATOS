@@ -14,7 +14,7 @@
 <meta name="author" content="WeizenSolutions">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Atos 0.1</title>
+<title>Atos ADMIN</title>
 
 <!-- Bootstrap core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
