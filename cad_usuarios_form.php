@@ -3,6 +3,10 @@ session_start();
 include_once("seguranca.php");
 include_once("conexao.php");
 include_once("menu_admin.php");
+
+$sql = mysql_query("SELECT * FROM nivel_acesso ORDER BY 'id'");
+$resultado = mysql_num_rows($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +41,7 @@ include_once("menu_admin.php");
     <body class="container">
 
         <h1>Cadastrar Usuários</h1>
-        <form id="frmCadUser" name="frmCadUser" method="post" action="cad_usuarios.php">
+        <form class="form-horizontal" id="frmCadUser" name="frmCadUser" method="POST" action="dal/cad_usuarios.php">
 
           <div class="form-group">
             <label for="lblNomeCompleto">Nome completo: </label>
@@ -61,16 +65,17 @@ include_once("menu_admin.php");
             <label for="lblNivelAcesso">Nível de Acesso: </label>
             <!-- <input type="text" class="form-control" id="user_nivel"> -->
             <select class="form-control" name="user_nivel">
-                <option value="1">Administrativo</option>
-                <option value="2">Usuário</option>
+                <?php
+                    while ($resultado = mysql_fetch_array($sql) ) {
+                          echo "<option value='".$resultado['id']."'>".$resultado['nome_nivel']."</option>";
+                    }
+                ?>
             </select>
           </div>
 
-
-
-
           <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
           <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
+        </form>
 
 
           <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

@@ -10,6 +10,8 @@ $senha  = $_POST['user_senha'];
 $nivel = $_POST['user_nivel'];
 
 
+echo $nome;
+
 $sql = "INSERT INTO usuarios (nome , email, usuario, senha, nivel_acesso_id) VALUES ( '$nome' , '$email' , '$usuario' , '$senha', '$nivel');";
 $execute = mysql_query($sql);
 
