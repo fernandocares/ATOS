@@ -41,7 +41,7 @@
 <div class="container theme-showcase" role="main">
 
 <div class="page-header">
-<h1>Alterei.</h1>
+<h1>Seja Bem-Vindo.</h1>
 </div>
 
 <!-- Bootstrap core JavaScript
