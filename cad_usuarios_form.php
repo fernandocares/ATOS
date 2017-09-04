@@ -41,7 +41,7 @@ $resultado = mysql_num_rows($sql);
     <body class="container">
 
         <h1>Cadastrar Usuários</h1>
-        <form class="form-horizontal" id="frmCadUser" name="frmCadUser" method="POST" action="dal/cad_usuarios.php">
+        <form id="frmCadUser" name="frmCadUser" method="POST" action="cad_usuarios.php">
 
           <div class="form-group">
             <label for="lblNomeCompleto">Nome completo: </label>
@@ -72,10 +72,10 @@ $resultado = mysql_num_rows($sql);
                 ?>
             </select>
           </div>
-
+          </form>
           <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
           <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
-        </form>
+
 
 
           <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
