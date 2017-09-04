@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once("seguranca.php");
-    include_once("destroi_dados");
+    include_once("destroi_dados.php");
 ?>
 
 <!DOCTYPE html>
