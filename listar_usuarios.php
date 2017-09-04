@@ -2,7 +2,6 @@
 session_start();
 include_once("seguranca.php");
 include_once("conexao.php");
-include_once("destroi_dados.php");
 ?>
 
 <!DOCTYPE html>

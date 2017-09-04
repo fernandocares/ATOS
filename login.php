@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+include_once("destroi_dados.php");
 ?>
 
 <!DOCTYPE html>
