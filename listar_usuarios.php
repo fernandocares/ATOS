@@ -39,7 +39,6 @@ include_once("conexao.php");
   include_once("menu_admin.php");
   $resultado = mysql_query("SELECT * FROM usuarios ORDER BY 'id'");
   $linhas = mysql_num_rows($resultado);
-
 ?>
 
 <div class="container theme-showcase" role="main">
