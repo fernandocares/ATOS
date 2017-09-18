@@ -62,15 +62,6 @@ include_once("destroi_dados.php");
 
               ?>
       </p>
-      <!-- destruindo as seções para que os dados do usuário não fiquem armazenados em cache -->
-      <?php
-          unset( $_SESSION['nome_usuario'],
-                 $_SESSION['id_usuario'],
-                 $_SESSION['nivel_usuario'],
-                 $_SESSION['email_usuario'],
-                 $_SESSION['senha_usuario'] ) ;
-
-      ?>
     </div> <!-- /container -->
 
 
