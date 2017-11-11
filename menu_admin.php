@@ -26,6 +26,16 @@
       -->
         </ul>
       </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Músicas <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="cad_musicas_form.php">Listar</a></li>
+          <li><a href="cad_usuarios_form.php">Cadastrar</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="cad_tipoMusica_form.php">Cadastro de Tipos de Música</a></li>
+          <li><a href="listar_tipoMusica.php">Listar Tipos de Música</a></li>
+        </ul>
+      </li>
     </ul>
   </div><!--/.nav-collapse -->
 </div>

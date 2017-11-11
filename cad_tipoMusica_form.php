@@ -38,43 +38,18 @@ $resultado = mysql_num_rows($sql);
 
 </head>
 
-    <body class="container">
-
-        <h1>Cadastrar Usuários</h1>
-        <form id="frmCadUser" name="frmCadUser" method="post" action="cad_usuarios.php">
-
-          <div class="form-group">
-            <label for="lblNomeCompleto">Nome completo: </label>
-            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Ex: João Da Silva" required>
-          </div>
-          <div class="form-group">
-            <label for="lblEmail">Email: </label>
-            <input type="email" class="form-control" id="user_email" name="user_email">
-          </div>
-
-          <div class="form-group">
-            <label for="lblNomeUsuario">Nome de usuário: </label>
-            <input type="text" class="form-control" id="user_nickname" name="user_nickname" placeholder="Ex: nomedeusuario" required>
-          </div>
-          <div class="form-group">
-            <label for="lblSenha">Senha: </label>
-            <input type="password" class="form-control" id="user_senha" name="user_senha" required>
-          </div>
-
-          <div class="form-group">
-            <label for="lblNivelAcesso">Nível de Acesso: </label>
-            <!-- <input type="text" class="form-control" id="user_nivel"> -->
-            <select class="form-control" name="user_nivel" required>
-                <?php
-                    while ($resultado = mysql_fetch_array($sql) ) {
-                          echo "<option value='".$resultado['id']."'>".$resultado['nome_nivel']."</option>";
-                    }
-                ?>
-            </select>
-          </div>
-          <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
-          <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
-    </form>
+  <body>
+        <div class="container theme-showcase" role="main">
+        <h1 align="center">Cadastro de Tipos de Música</h1>
+        <form id="frmCadTipoMusica" class="form-horizontal" name="frmCadTipoMusica" method="post" action="cad_tipoMusica.php">
+            <div class="form-group">
+              <label for="lblNomeCompleto">Descricão: </label>
+              <input type="text" class="form-control" name="tpm_descricao" placeholder="Ex: Lenta/Rápida/Emotiva" required>
+            </div>
+            <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
+            <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
+        </form>
+  </div>
 
 
 <!-- Bootstrap core JavaScript

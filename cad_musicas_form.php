@@ -40,12 +40,12 @@ $resultado = mysql_num_rows($sql);
 
     <body class="container">
 
-        <h1>Cadastrar Usuários</h1>
+        <h1>Cadastro de Músicas</h1>
         <form id="frmCadUser" name="frmCadUser" method="post" action="cad_usuarios.php">
 
           <div class="form-group">
             <label for="lblNomeCompleto">Nome completo: </label>
-            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Ex: João Da Silva" required>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Ex: João Da Silva">
           </div>
           <div class="form-group">
             <label for="lblEmail">Email: </label>
@@ -54,17 +54,17 @@ $resultado = mysql_num_rows($sql);
 
           <div class="form-group">
             <label for="lblNomeUsuario">Nome de usuário: </label>
-            <input type="text" class="form-control" id="user_nickname" name="user_nickname" placeholder="Ex: nomedeusuario" required>
+            <input type="text" class="form-control" id="user_nickname" name="user_nickname" placeholder="Ex: nomedeusuario">
           </div>
           <div class="form-group">
             <label for="lblSenha">Senha: </label>
-            <input type="password" class="form-control" id="user_senha" name="user_senha" required>
+            <input type="password" class="form-control" id="user_senha" name="user_senha">
           </div>
 
           <div class="form-group">
             <label for="lblNivelAcesso">Nível de Acesso: </label>
             <!-- <input type="text" class="form-control" id="user_nivel"> -->
-            <select class="form-control" name="user_nivel" required>
+            <select class="form-control" name="user_nivel">
                 <?php
                     while ($resultado = mysql_fetch_array($sql) ) {
                           echo "<option value='".$resultado['id']."'>".$resultado['nome_nivel']."</option>";
