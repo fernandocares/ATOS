@@ -5,6 +5,7 @@ include_once("conexao.php");
 $id = trim($_POST['exclui_id']);
 
 $sql = "DELETE FROM musica WHERE musica_id= '$id';";
+aaaa
 
 
 $execute = mysql_query($sql);
