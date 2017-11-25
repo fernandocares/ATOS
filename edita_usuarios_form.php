@@ -1,12 +1,25 @@
 <?php
-session_start();
-include_once("seguranca.php");
-include_once("conexao.php");
-include_once("menu_admin.php");
+   session_start();
+   require_once 'conexao.php';
+   include_once("seguranca.php");
+   include_once("conexao.php");
+   include_once("menu_admin.php");
 
-$sql = mysql_query("SELECT * FROM nivel_acesso ORDER BY 'id'");
-$resultado = mysql_num_rows($sql);
+   $id = trim($_REQUEST['id']);
+   $rs = mysql_query("SELECT * FROM usuarios WHERE id=".$id);
 
+   $row = mysql_fetch_array($rs);
+
+   $nome = $row['nome'];
+   $email = $row['email'];
+   $usuario=  $row['usuario'];
+   $senha = $row['senha'];
+   $nivel  = $row['nivel_acesso_id'];
+
+   require_once 'conexao.php';
+
+   $sql = mysql_query("SELECT * FROM nivel_acesso ORDER BY 'id'");
+   $resultado = mysql_num_rows($sql);
 ?>
 
 <!DOCTYPE html>
@@ -40,31 +53,36 @@ $resultado = mysql_num_rows($sql);
 
     <body class="container">
 
-        <h1>Cadastrar Usuários</h1>
-        <form id="frmCadUser" name="frmCadUser" method="post" action="insere_usuarios.php">
+        <h1>Editar Usuários</h1>
+        <form id="frmCadUser" name="frmCadUser" method="post" action="edita_usuarios.php">
+
+          <div class="form-group">
+            <label for="lblId">ID: <?php echo $id?> </label>
+            <input type="hidden" name="edt_id"  value="<?php echo $id?>">
+          </div>
 
           <div class="form-group">
             <label for="lblNomeCompleto">Nome completo: </label>
-            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Ex: João Da Silva" required>
+            <input type="text" class="form-control" id="edt_name" name="edt_name" value="<?php echo $nome?>" required>
           </div>
           <div class="form-group">
             <label for="lblEmail">Email: </label>
-            <input type="email" class="form-control" id="user_email" name="user_email">
+            <input type="email" class="form-control" id="edt_email" name="edt_email" value="<?php echo $email?>" >
           </div>
 
           <div class="form-group">
             <label for="lblNomeUsuario">Nome de usuário: </label>
-            <input type="text" class="form-control" id="user_nickname" name="user_nickname" placeholder="Ex: nomedeusuario" required>
+            <input type="text" class="form-control" id="edt_nickname" name="edt_nickname" value="<?php echo $usuario?>" required>
           </div>
           <div class="form-group">
             <label for="lblSenha">Senha: </label>
-            <input type="password" class="form-control" id="user_senha" name="user_senha" required>
+            <input type="password" class="form-control" id="edt_senha" name="edt_senha"  value="<?php echo $senha?>"required>
           </div>
 
           <div class="form-group">
             <label for="lblNivelAcesso">Nível de Acesso: </label>
             <!-- <input type="text" class="form-control" id="user_nivel"> -->
-            <select class="form-control" name="user_nivel" required>
+            <select class="form-control" name="edt_nivel" required>
                 <?php
                     while ($resultado = mysql_fetch_array($sql) ) {
                           echo "<option value='".$resultado['id']."'>".$resultado['nome_nivel']."</option>";
@@ -72,7 +90,7 @@ $resultado = mysql_num_rows($sql);
                 ?>
             </select>
           </div>
-          <input name="bt_cad" id="bt_cad" type="submit" value="Cadastrar" class="btn btn-success"/>
+          <input name="bt_cad" id="bt_cad" type="submit" value="Atualizar" class="btn btn-success"/>
           <input name="bt_limpar" id="bt_limpar" type="reset" value="Limpar" class="btn btn-danger"/>
     </form>
 

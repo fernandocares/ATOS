@@ -5,7 +5,7 @@ include_once("conexao.php");
 
 $id = $_POST['exclui_id'];
 
-$sql = "DELETE FROM tipo WHERE tipo_id= '$id';";
+$sql = "DELETE FROM tipo WHERE tipo_id='$id';";
 
 
 $execute = mysql_query($sql);

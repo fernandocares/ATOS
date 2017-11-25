@@ -41,7 +41,7 @@ $resultado = mysql_num_rows($sql);
   <body>
         <div class="container theme-showcase" role="main">
         <h1 align="center">Cadastro de Tipos de Música</h1>
-        <form id="frmCadTipoMusica" class="form-horizontal" name="frmCadTipoMusica" method="post" action="cad_tipoMusica.php">
+        <form id="frmCadTipoMusica" class="form-horizontal" name="frmCadTipoMusica" method="post" action="insere_tipoMusica.php">
             <div class="form-group">
               <label for="lblNomeCompleto">Descricão: </label>
               <input type="text" class="form-control" name="tpm_descricao" placeholder="Ex: Lenta/Rápida/Emotiva" required>

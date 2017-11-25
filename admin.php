@@ -1,6 +1,8 @@
 <?php
     session_start();
     include_once("seguranca.php");
+
+    $sql = mysql_query("SELECT * FROM culto ORDER BY 'id'");
 ?>
 
 <!DOCTYPE html>

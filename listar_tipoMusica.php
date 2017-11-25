@@ -39,8 +39,7 @@ include_once("conexao.php");
 
 <?php
   include_once("menu_admin.php");
-  $resultado = mysql_query("SELECT * FROM tipo ORDER BY 'tipo_id'");
-  $linhas = mysql_num_rows($resultado);
+  $sql = mysql_query("SELECT * FROM tipo ORDER BY 'tipo_id'");
 ?>
 
 <div class="container theme-showcase" role="main">
@@ -69,7 +68,7 @@ include_once("conexao.php");
       </tfoot>
       <tbody>
       <?php
-          while ($linhas = mysql_fetch_array($resultado) ) {
+          while ($linhas = mysql_fetch_array($sql) ) {
                 echo "<tr>";
                   echo "<td>".$linhas['tipo_id'] ."</td>";
                   echo "<td>".$linhas['tipo_descricao'] ."</td>";
@@ -101,7 +100,7 @@ include_once("conexao.php");
         <h3 class="modal-title" id="tituloModal">Novo Tipo de Música</h3>
       </div>
       <div class="modal-body">
-        <form id="frmCadTipoMusica" name="frmCadTipoMusica" method="post" action="cad_tipoMusica.php">
+        <form id="frmCadTipoMusica" name="frmCadTipoMusica" method="post" action="insere_tipoMusica.php">
               <div class="form-group">
                 <label for="recipient-name" class="form-control-label">Descrição:</label>
                 <input type="text" class="form-control" name="tpm_descricao" placeholder="Ex: Lenta/Rápida/Emotiva" required>

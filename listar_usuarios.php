@@ -47,15 +47,10 @@ include_once("conexao.php");
 ?>
 
 <div class="container theme-showcase" role="main">
-
-  <h1 align="center">Lista de Usuários</h1>
-
+<h1 align="center">Lista de Usuários</h1>
 
 <div class="container">
-  </br>
-  </br>
-
-  <table id="listagem" class="table table-striped table-bordered" >
+  <table id="listagem" class="table table-striped table-bordered">
     <thead>
       <tr>
           <th>Id</th>
@@ -86,10 +81,8 @@ include_once("conexao.php");
                         <td>
                           <div align="center">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalNovo">Novo</button>
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"
-                                data-whatever=" <?php echo $linhas['id'];  ?>"
-                                data-whatevernome=" <?php echo $linhas['nome'];  ?>"
-                                data-whateveremail=" <?php echo $linhas['email'];  ?>"> Editar</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="javascript:location.href='edita_usuarios_form.php?id='+ <?php echo $linhas['id'] ?> ">Editar</span></button>
+
                                <button type='button' class='btn btn-primary btn-sm' data-toggle="modal" data-target="#modalExcluir"
                                data-whateverexcluir=" <?php echo $linhas['id'];  ?>" >Excluir</button>
                           </div>
@@ -109,10 +102,10 @@ include_once("conexao.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="tituloModal">Novo</h3>
+        <h3 class="modal-title" id="tituloModal">Novo Usuário</h3>
       </div>
       <div class="modal-body">
-        <form  method="post" action="cad_usuarios.php">
+        <form  method="post" action="insere_usuarios.php">
                 <div class="form-group">
                   <label for="lblNomeCompleto">Nome completo: </label>
                   <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Ex: João Da Silva" required>
@@ -161,7 +154,7 @@ include_once("conexao.php");
       <h3 class="modal-title" id="tituloModal">Deletar</h3>
     </div>
     <div class="modal-body">
-      <form id="frmExcluirTipoMusica" name="frmExcluirTipoMusica" method="post" action="exclui_tipoMusica.php">
+      <form id="frmExcluirTipoMusica" name="frmExcluirTipoMusica" method="post" action="exclui_usuarios.php">
             <div class="form-group">
               <label for="recipient-name" class="form-control-label">Deseja realmente excluir este registro?</label>
               <input type="hidden" class="form-control" id="id-tipo" name="exclui_id" value="">
@@ -193,13 +186,8 @@ include_once("conexao.php");
 <!-- SCRIPT DA MODAL NOVO -->
 <script type="text/javascript">
   $('#modalNovo').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  //var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var button = $(event.relatedTarget)
   var modal = $(this)
-  //modal.find('.modal-title').text('New message to ' + recipient)
-  //modal.find('.modal-body input').val(recipient)
 })
 </script>
 <!-- SCRIPT DA MODAL NOVO -->
@@ -207,14 +195,13 @@ include_once("conexao.php");
 <!-- SCRIPT DA MODAL EXCLUIR -->
 <script type="text/javascript">
   $('#modalExcluir').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whateverexcluir') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var button = $(event.relatedTarget)
+  var recipient = button.data('whateverexcluir')
   var modal = $(this)
   modal.find('#id-tipo').val(recipient)
 })
 </script>
 <!-- SCRIPT DA MODAL EXCLUIR -->
+
 </body>
 </html>
