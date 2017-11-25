@@ -107,7 +107,8 @@ $sql_autor = mysql_query("SELECT * FROM autor ORDER BY 'autor_id'");
                                     <td>
                                       <div align="center">
                                            <button type="button" class="btn btn-primary btn-sm" onclick="javascript:location.href='edita_musicas_form.php?id='+ <?php echo $linhas['musica_id'] ?> ">Editar</button>
-                                           <button type="button" class="btn btn-primary btn-sm" onclick="javascript:location.href='exclui_musica.php?id='+<?php echo $linhas['musica_id'] ?>">Excluir</span> </button>
+                                           <button type='button' class='btn btn-primary btn-sm' data-toggle="modal" data-target="#modalExcluir"
+                                           data-whateverexcluir=" <?php echo $linhas['musica_id'];  ?>" >Excluir</button>
                                       </div>
                                      </td>
 
@@ -227,6 +228,30 @@ $sql_autor = mysql_query("SELECT * FROM autor ORDER BY 'autor_id'");
                 </form>
         </div>
 
+        <!-- modal  EXCLUIR -->
+        <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title" id="tituloModal">Deletar</h3>
+            </div>
+            <div class="modal-body">
+              <form id="frmExcluirTipoMusica" name="frmExcluirTipoMusica" method="post" action="exclui_musica.php">
+                    <div class="form-group">
+                      <label for="recipient-name" class="form-control-label">Deseja realmente excluir este registro?</label>
+                      <input type="hidden" class="form-control" id="id-tipo" name="exclui_id" value="">
+                    </div>
+                <input name="bt_exclui" id="bt_exclui" type="submit" value="Excluir" class="btn btn-danger"/>
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- modal  -->
+
+
       </div>
 </div>
 
@@ -240,6 +265,17 @@ $sql_autor = mysql_query("SELECT * FROM autor ORDER BY 'autor_id'");
 <script src="bootstrap/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+<!-- SCRIPT DA MODAL EXCLUIR -->
+<script type="text/javascript">
+  $('#modalExcluir').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var recipient = button.data('whateverexcluir')
+  var modal = $(this)
+  modal.find('#id-tipo').val(recipient)
+})
+</script>
+<!-- SCRIPT DA MODAL EXCLUIR -->
 
 </body>
 </html>

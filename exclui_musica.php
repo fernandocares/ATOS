@@ -2,7 +2,7 @@
 session_start();
 include_once("conexao.php");
 
-$id = trim($_POST['edt_musica_id']);
+$id = trim($_POST['exclui_id']);
 
 $sql = "DELETE FROM musica WHERE musica_id= '$id';";
 
